@@ -155,6 +155,20 @@
       word-break: break-all;
       line-height: 1.4;
     }
+    .talking-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .tp {
+      font-size: 0.75rem;
+      color: #8b949e;
+      padding: 0.5rem 0.75rem;
+      border-left: 2px solid #30363d;
+      line-height: 1.45;
+    }
+    .tp strong { color: #e6edf3; }
   </style>
 </head>
 <body>
@@ -239,6 +253,25 @@
         <div class="v-cmd">hermes chat -q "search policy-docs/ for FedRAMP ATO requirements"</div>
       </div>
 
+    </div>
+
+    <div class="section-title">GSI Talking Points</div>
+    <div class="talking-points">
+      <div class="tp"><strong>Model-agnostic</strong> — switch LLM providers in one command. No vendor lock-in.</div>
+      <div class="tp"><strong>Skills compound</strong> — 1st deploy is manual; 10th is one command. Institutional knowledge captured.</div>
+      <div class="tp"><strong>Cross-platform ops</strong> — Telegram → TUI → Discord. Agent maintains context across surfaces.</div>
+      <div class="tp"><strong>Compliance-ready</strong> — 5 sandbox backends, session logging, skill quarantine, air-gap support.</div>
+      <div class="tp"><strong>MIT license</strong> — no licensing risk. Portable agentskills.io format works across editors.</div>
+      <div class="tp"><strong>Dual-use for training</strong> — same architecture powers Nous RL pipeline. Path to custom domain agents.</div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="links">
+      <a href="https://github.com/QbitLoop/hermes">GitHub</a>
+      <a href="https://github.com/NousResearch/hermes-agent">NousResearch</a>
+      <a href="../index.html">Install</a>
+      <a href="https://qbitloop.com">QbitLoop</a>
     </div>
   </div>
 </body>
