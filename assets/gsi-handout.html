@@ -119,6 +119,42 @@
       gap: 0.75rem;
       margin: 0.15rem 0;
     }
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+    .v-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .v-card.hero { border-color: #58a6ff; }
+    .v-card .v-title {
+      font-size: 0.78rem;
+      color: #e6edf3;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .v-card .v-usecase {
+      font-size: 0.7rem;
+      color: #8b949e;
+      margin-bottom: 0.75rem;
+      line-height: 1.45;
+    }
+    .v-cmd {
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: 4px;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.62rem;
+      color: #79c0ff;
+      margin-bottom: 0.35rem;
+      word-break: break-all;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -163,6 +199,46 @@
         <span class="label">Sandbox Backend</span>
         Docker · E2B · Local · Modal · Fly.io
       </div>
+    </div>
+
+    <div class="section-title">Industry Verticals</div>
+    <div class="verticals-grid">
+
+      <div class="v-card">
+        <div class="v-title">Financial Services</div>
+        <div class="v-usecase">Fraud detection MLOps · vLLM latency diagnosis · W&amp;B audit trail</div>
+        <div class="v-cmd">hermes chat -q "diagnose vLLM latency spike on fraud-model-v3"</div>
+        <div class="v-cmd">hermes chat -q "generate W&amp;B governance report for Q4 model runs"</div>
+      </div>
+
+      <div class="v-card">
+        <div class="v-title">Healthcare &amp; Life Sciences</div>
+        <div class="v-usecase">Clinical RAG over 2M documents · FHIR structured output · CLIP multimodal</div>
+        <div class="v-cmd">hermes chat -q "build RAG pipeline over clinical-notes/ with FHIR output"</div>
+        <div class="v-cmd">hermes chat -q "run CLIP similarity search on radiology-images/"</div>
+      </div>
+
+      <div class="v-card hero">
+        <div class="v-title">Telecommunications ★</div>
+        <div class="v-usecase">Network anomaly detection at 50K towers · SAELens interpretability · real-time alerting</div>
+        <div class="v-cmd">hermes chat -q "detect anomalies in tower-metrics/ using SAELens"</div>
+        <div class="v-cmd">hermes chat -q "schedule hourly network health report to Telegram"</div>
+      </div>
+
+      <div class="v-card">
+        <div class="v-title">Retail &amp; E-Commerce</div>
+        <div class="v-usecase">Black Friday 10x traffic scaling · Qdrant product search · demand forecasting</div>
+        <div class="v-cmd">hermes chat -q "scale inference cluster for Black Friday load test"</div>
+        <div class="v-cmd">hermes chat -q "index product-catalog/ in Qdrant with CLIP embeddings"</div>
+      </div>
+
+      <div class="v-card">
+        <div class="v-title">Public Sector &amp; Defense</div>
+        <div class="v-usecase">Document intelligence · 100K forms/day · Chroma policy search · air-gap support</div>
+        <div class="v-cmd">hermes chat -q "extract structured data from forms/ at 100K/day throughput"</div>
+        <div class="v-cmd">hermes chat -q "search policy-docs/ for FedRAMP ATO requirements"</div>
+      </div>
+
     </div>
   </div>
 </body>
