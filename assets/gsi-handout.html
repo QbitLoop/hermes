@@ -87,6 +87,38 @@
       text-decoration: none;
     }
     .links a:hover { text-decoration: underline; }
+    .arch { margin-bottom: 3rem; }
+    .arch-layer {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 0.85rem 1.25rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #e6edf3;
+    }
+    .arch-layer .label {
+      color: #8b949e;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .arch-layer.accent { border-color: #58a6ff; color: #79c0ff; }
+    .arch-arrow {
+      text-align: center;
+      color: #30363d;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      padding: 0.1rem 0;
+    }
+    .arch-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin: 0.15rem 0;
+    }
   </style>
 </head>
 <body>
@@ -98,6 +130,39 @@
     <div class="install-block">
       <div class="install-label">Install</div>
       <div class="install-cmd"><span>curl</span> -fsSL https://hermes.qbitloop.com/install.sh | bash</div>
+    </div>
+
+    <div class="section-title">Architecture</div>
+    <div class="arch">
+      <div class="arch-layer">
+        <span class="label">LLM Provider</span>
+        OpenRouter · Nous Portal · Custom Endpoint
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer accent">
+        <span class="label">Hermes Core</span>
+        ReAct Loop · Max 60 Iterations · Tool Dispatch
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-row">
+        <div class="arch-layer">
+          <span class="label">Memory</span>
+          Session · MEMORY.md (~800t) · USER.md (~500t)
+        </div>
+        <div class="arch-layer">
+          <span class="label">Tools</span>
+          40+ built-in · ML · Infra · Data · Cron
+        </div>
+        <div class="arch-layer">
+          <span class="label">Skills</span>
+          SKILL.md format · agentskills.io · MIT
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer">
+        <span class="label">Sandbox Backend</span>
+        Docker · E2B · Local · Modal · Fly.io
+      </div>
     </div>
   </div>
 </body>
