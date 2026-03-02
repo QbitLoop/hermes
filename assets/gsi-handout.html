@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermes Agent — GSI Reference</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+    }
+    .container {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      background: #1f6feb;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      color: #8b949e;
+      font-size: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+    .install-block {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .install-label {
+      color: #8b949e;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+    .install-cmd {
+      color: #79c0ff;
+      font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+      word-break: break-all;
+    }
+    .install-cmd span { color: #56d364; }
+    .section-title {
+      color: #8b949e;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+      margin-top: 2.5rem;
+    }
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #21262d;
+      margin: 1.5rem 0;
+    }
+    .links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+    }
+    .links a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    .links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">Enterprise MLOps Edition</div>
+    <h1>Hermes Agent — GSI Reference</h1>
+    <p class="sub">Architecture · Industry Verticals · Key Commands · Powered by NousResearch</p>
+
+    <div class="install-block">
+      <div class="install-label">Install</div>
+      <div class="install-cmd"><span>curl</span> -fsSL https://hermes.qbitloop.com/install.sh | bash</div>
+    </div>
+  </div>
+</body>
+</html>
