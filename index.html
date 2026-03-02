@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermes Agent — Enterprise MLOps Edition</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container { max-width: 720px; width: 100%; }
+    .badge {
+      display: inline-block;
+      background: #1f6feb;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      color: #8b949e;
+      font-size: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+    .install-block {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .install-label {
+      color: #8b949e;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+    .install-cmd {
+      color: #79c0ff;
+      font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+      word-break: break-all;
+    }
+    .install-cmd span { color: #56d364; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .card-label {
+      color: #8b949e;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .card-val {
+      color: #e6edf3;
+      font-size: 0.85rem;
+    }
+    .verticals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .tag {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #8b949e;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+    }
+    .links a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    .links a:hover { text-decoration: underline; }
+    .divider {
+      border: none;
+      border-top: 1px solid #21262d;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">Enterprise MLOps Edition</div>
+    <h1>Hermes Agent</h1>
+    <p class="sub">Terminal AI agent with 40+ tools and curated MLOps skills · Powered by NousResearch</p>
+
+    <div class="install-block">
+      <div class="install-label">Install</div>
+      <div class="install-cmd">
+        <span>curl</span> -fsSL https://hermes.qbitloop.com/install.sh | bash
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-label">Agent</div>
+        <div class="card-val">NousResearch Hermes-3</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Tools</div>
+        <div class="card-val">40+ bundled · Community hub</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Provider</div>
+        <div class="card-val">OpenRouter · Nous · Custom</div>
+      </div>
+      <div class="card">
+        <div class="card-label">License</div>
+        <div class="card-val">MIT · No vendor lock-in</div>
+      </div>
+    </div>
+
+    <div class="card-label" style="margin-bottom:0.6rem;">Verticals</div>
+    <div class="verticals">
+      <span class="tag">Financial Services</span>
+      <span class="tag">Healthcare &amp; Life Sciences</span>
+      <span class="tag">Telecommunications</span>
+      <span class="tag">Retail &amp; E-Commerce</span>
+      <span class="tag">Public Sector &amp; Defense</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="links">
+      <a href="https://github.com/QbitLoop/hermes">GitHub</a>
+      <a href="https://github.com/NousResearch/hermes-agent">NousResearch</a>
+      <a href="https://qbitloop.com">QbitLoop</a>
+      <a href="install.sh">install.sh</a>
+    </div>
+  </div>
+</body>
+</html>
