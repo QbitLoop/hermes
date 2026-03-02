@@ -8,12 +8,14 @@ packaging it for an actual GSI audience (SAs, DevRel, ML Platform teams).
 
 ## Current Phase
 
-**Phase 1: Foundation** (In Progress — started 2026-02-27)
-- [x] Project directory created at `/Users/w/Desktop/AI2026-C/Publisher/Hermes/`
-- [x] Memory system initialized (CLAUDE.md, context.md, todos.md, insights.md)
-- [ ] Save source playbook as `playbook.md`
-- [ ] Create per-vertical demo scripts under `demos/`
-- [ ] Identify and fill gaps in the playbook
+**Phase 3: Complete** (2026-03-01)
+- [x] Project directory + memory system initialized (2026-02-27)
+- [x] Full 10-part playbook saved as playbook.md
+- [x] 5 per-vertical demo scripts created (demos/)
+- [x] install.sh built + live at hermes.qbitloop.com
+- [x] GitHub repo created: github.com/QbitLoop/hermes
+- [x] GitHub Pages enabled: hermes.qbitloop.com
+- [x] GSI handout built: hermes.qbitloop.com/assets/gsi-handout.html
 
 ## Strategic Context
 
@@ -51,4 +53,4 @@ assets/architecture.md     ← architecture diagram notes
 ```
 
 ---
-*Last updated: 2026-02-27 | Phase 1 in progress*
+*Last updated: 2026-03-01 | Phase 3 complete — all deliverables live*

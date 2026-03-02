@@ -46,7 +46,7 @@ Each demo script should include:
 - [ ] Ensure each vertical maps to 1-2 specific GSI partners
 
 ### Presentation Assets (Optional)
-- [ ] HTML one-pager for GSI handout (Brand-WHFT or Brand-MSI)
+- [x] HTML one-pager for GSI handout — assets/gsi-handout.html (GitHub Dark, 2026-03-01)
 - [ ] LinkedIn post draft: "What I learned building an MLOps agent for Fortune 500 demos"
 
 ---
@@ -57,6 +57,7 @@ Each demo script should include:
 |------|-----------|-------|
 | Project directory created | 2026-02-27 | `/Users/w/Desktop/AI2026-C/Publisher/Hermes/` |
 | Memory system initialized | 2026-02-27 | 4 files: CLAUDE.md + 3 .claude/ files |
+| GSI handout page built + pushed | 2026-03-01 | assets/gsi-handout.html — live at hermes.qbitloop.com/assets/gsi-handout.html |
 
 ---
 *Last checkpoint: 2026-02-27 | Phase 1 in progress*
