@@ -11,13 +11,33 @@
       color: #e6edf3;
       font-family: 'Courier New', monospace;
       min-height: 100vh;
-      padding: 2.5rem 1.5rem;
     }
     .container {
       max-width: 860px;
       width: 100%;
       margin: 0 auto;
+      padding: 2.5rem 1.5rem;
     }
+    /* ── nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .site-nav::-webkit-scrollbar { display: none; }
+    .site-nav a {
+      color: #8b949e; text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.75rem; white-space: nowrap;
+      border-right: 1px solid #21262d; flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+    .site-nav a:hover { color: #f0f6fc; background: #21262d; }
+    .site-nav a.active { color: #f0f6fc; border-bottom: 2px solid #58a6ff; }
     .brand-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; }
     .brand-logo { height: 80px; width: auto; flex-shrink: 0; }
     .badge {
@@ -174,6 +194,15 @@
   </style>
 </head>
 <body>
+  <nav class="site-nav">
+    <a href="https://github.com/QbitLoop/hermes">GitHub</a>
+    <a href="blueprint.html">Architecture</a>
+    <a href="guide.html">Field Guide</a>
+    <a href="gsi-handout.html" class="active">GSI Reference</a>
+    <a href="https://github.com/NousResearch/hermes-agent">NousResearch</a>
+    <a href="https://qbitloop.com">QbitLoop</a>
+    <a href="../install.sh">install.sh</a>
+  </nav>
   <div class="container">
     <div class="brand-header">
       <img src="crow-logo.png" alt="" class="brand-logo">
