@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermes Agent — Enterprise Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .container { max-width: 900px; width: 100%; margin: 0 auto; }
+
+    /* ── typography ── */
+    .badge {
+      display: inline-block;
+      background: #1f6feb;
+      color: #fff;
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      color: #8b949e;
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 1.05rem;
+      color: #f0f6fc;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 0.85rem;
+      color: #79c0ff;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    p {
+      font-size: 0.82rem;
+      color: #8b949e;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    p strong { color: #e6edf3; }
+
+    /* ── layout ── */
+    .section { margin-bottom: 3.5rem; }
+
+    .section-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #56d364;
+      margin-bottom: 0.4rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #21262d;
+      margin: 2.5rem 0;
+    }
+
+    /* ── install block ── */
+    .install-block {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .install-label {
+      color: #8b949e;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .install-cmd {
+      color: #79c0ff;
+      font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+      word-break: break-all;
+    }
+    .install-cmd span { color: #56d364; }
+
+    /* ── stat cards ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .stat {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .stat .num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #58a6ff;
+      letter-spacing: -0.03em;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .stat .lbl {
+      font-size: 0.7rem;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── screenshot ── */
+    .screenshot-wrap {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .screenshot-wrap .ss-label {
+      padding: 0.5rem 1rem;
+      font-size: 0.68rem;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid #21262d;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ss-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #30363d;
+      display: inline-block;
+    }
+    .ss-dot.green { background: #56d364; }
+    .screenshot-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .caption {
+      font-size: 0.72rem;
+      color: #8b949e;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    /* ── tool call table ── */
+    .tool-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      margin-bottom: 1rem;
+    }
+    .tool-table th {
+      text-align: left;
+      color: #8b949e;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #30363d;
+      font-weight: 400;
+    }
+    .tool-table td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid #21262d;
+      color: #e6edf3;
+      vertical-align: top;
+      line-height: 1.45;
+    }
+    .tool-table td:first-child { color: #79c0ff; white-space: nowrap; }
+    .tool-table td:last-child { color: #8b949e; }
+    .tool-table tr:last-child td { border-bottom: none; }
+    .tbl-wrap {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    /* ── timeline ── */
+    .timeline { margin-bottom: 1.5rem; }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 120px;
+      gap: 0.75rem;
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px solid #21262d;
+      font-size: 0.75rem;
+      align-items: start;
+    }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-time { color: #58a6ff; white-space: nowrap; }
+    .tl-action { color: #e6edf3; }
+    .tl-tool { color: #8b949e; text-align: right; font-size: 0.68rem; }
+    .tl-highlight .tl-action { color: #56d364; font-weight: 700; }
+    .tl-highlight .tl-time { color: #56d364; }
+
+    /* ── verticals ── */
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .v-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .v-card.hero { border-color: #58a6ff; }
+    .v-title {
+      font-size: 0.8rem;
+      color: #e6edf3;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .v-usecase {
+      font-size: 0.72rem;
+      color: #8b949e;
+      line-height: 1.45;
+      margin-bottom: 0.75rem;
+    }
+    .v-cmd {
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: 4px;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.65rem;
+      color: #79c0ff;
+      margin-bottom: 0.3rem;
+      word-break: break-all;
+      line-height: 1.4;
+    }
+
+    /* ── capability rows ── */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 560px) { .cap-grid { grid-template-columns: 1fr; } }
+    .cap-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+    }
+    .cap-card h3 { font-size: 0.72rem; margin-bottom: 0.4rem; }
+    .cap-card p { font-size: 0.75rem; margin-bottom: 0; color: #8b949e; }
+
+    /* ── quote block ── */
+    .quote {
+      border-left: 3px solid #58a6ff;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      background: #161b22;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.8rem;
+      color: #e6edf3;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* ── step list ── */
+    .steps { counter-reset: step; }
+    .step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      background: #1f6feb;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-body { flex: 1; }
+    .step-title { font-size: 0.82rem; color: #e6edf3; font-weight: 700; margin-bottom: 0.25rem; }
+    .step-desc { font-size: 0.75rem; color: #8b949e; line-height: 1.5; margin-bottom: 0.4rem; }
+    .code-block {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      color: #79c0ff;
+      overflow-x: auto;
+    }
+    .code-block .green { color: #56d364; }
+
+    /* ── links ── */
+    .links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .links a { color: #58a6ff; text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── HEADER ── -->
+  <div class="badge">Enterprise MLOps Edition</div>
+  <h1>Hermes Agent — Field Guide</h1>
+  <p class="sub">
+    A terminal AI agent with 40+ tools and 51 industry skills.<br>
+    This guide walks through the value, what it can do, how it works, and how to get running.
+  </p>
+
+  <div class="install-block">
+    <div class="install-label">Quick Install</div>
+    <div class="install-cmd">
+      <span>curl</span> -fsSL https://hermes.qbitloop.com/install.sh | bash
+    </div>
+  </div>
+
+  <!-- ── SECTION 1: VALUE ── -->
+  <div class="section">
+    <div class="section-label">01 — Why It Exists</div>
+    <h2>The Problem With Institutional MLOps Knowledge</h2>
+
+    <p>
+      Every team that runs ML in production has the same problem: <strong>the knowledge to operate it lives in people's heads.</strong>
+      The senior engineer who knows the fraud model's blind spots, the vLLM timeout trick, the W&B artifact naming convention — that's not in any runbook.
+    </p>
+    <p>
+      When that person is on vacation, it's a 2am page and a four-hour war room. When they leave, the knowledge walks out with them.
+    </p>
+    <p>
+      <strong>Hermes captures that knowledge as skills</strong> — plain-text SKILL.md files that describe tools, workflows, and domain rules.
+      The first deployment might take 6 hours. The tenth takes one command.
+    </p>
+
+    <div class="quote">
+      "Traditional monitoring tells you '3 towers are red.' This tells you CHI-4412 backhaul died,
+      the same fiber that got cut in November, neighbors are absorbing traffic, and you have until 7 AM
+      before the cluster collapses — here's the work order."
+    </div>
+
+    <div class="stats-row">
+      <div class="stat">
+        <span class="num">40+</span>
+        <span class="lbl">Built-in Tools</span>
+      </div>
+      <div class="stat">
+        <span class="num">51</span>
+        <span class="lbl">MLOps Skills</span>
+      </div>
+      <div class="stat">
+        <span class="num">60</span>
+        <span class="lbl">Max Agent Iterations</span>
+      </div>
+      <div class="stat">
+        <span class="num">5</span>
+        <span class="lbl">Sandbox Backends</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── SECTION 2: USE CASES ── -->
+  <div class="section">
+    <div class="section-label">02 — Industry Use Cases</div>
+    <h2>Five Verticals, One Agent</h2>
+    <p>
+      Each vertical ships with pre-built skills that encode domain rules — no prompt engineering required.
+      Copy the commands below and run them.
+    </p>
+
+    <div class="verticals-grid">
+
+      <div class="v-card">
+        <div class="v-title">Financial Services</div>
+        <div class="v-usecase">Fraud detection MLOps · vLLM latency diagnosis · W&B governance audit trail</div>
+        <div class="v-cmd">hermes chat -q "diagnose vLLM latency spike on fraud-model-v3"</div>
+        <div class="v-cmd">hermes chat -q "generate W&B governance report for Q4 model runs"</div>
+      </div>
+
+      <div class="v-card">
+        <div class="v-title">Healthcare &amp; Life Sciences</div>
+        <div class="v-usecase">Clinical RAG over 2M documents · FHIR structured output · CLIP multimodal search</div>
+        <div class="v-cmd">hermes chat -q "build RAG pipeline over clinical-notes/ with FHIR output"</div>
+        <div class="v-cmd">hermes chat -q "run CLIP similarity search on radiology-images/"</div>
+      </div>
+
+      <div class="v-card hero">
+        <div class="v-title">Telecommunications ★ Hero Demo</div>
+        <div class="v-usecase">Network anomaly detection at 50K towers · SAELens interpretability · real-time alerting</div>
+        <div class="v-cmd">hermes chat -q "detect anomalies in tower-metrics/ using SAELens"</div>
+        <div class="v-cmd">hermes chat -q "schedule hourly network health report to Telegram"</div>
+      </div>
+
+      <div class="v-card">
+        <div class="v-title">Retail &amp; E-Commerce</div>
+        <div class="v-usecase">Black Friday 10x traffic scaling · Qdrant product search · demand forecasting</div>
+        <div class="v-cmd">hermes chat -q "scale inference cluster for Black Friday load test"</div>
+        <div class="v-cmd">hermes chat -q "index product-catalog/ in Qdrant with CLIP embeddings"</div>
+      </div>
+
+      <div class="v-card">
+        <div class="v-title">Public Sector &amp; Defense</div>
+        <div class="v-usecase">Document intelligence · 100K forms/day · Chroma policy search · air-gap support</div>
+        <div class="v-cmd">hermes chat -q "extract structured data from forms/ at 100K/day throughput"</div>
+        <div class="v-cmd">hermes chat -q "search policy-docs/ for FedRAMP ATO requirements"</div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── SECTION 3: CAPABILITIES ── -->
+  <div class="section">
+    <div class="section-label">03 — What It Can Do</div>
+    <h2>Capabilities</h2>
+
+    <div class="screenshot-wrap" style="margin-bottom:0.75rem;">
+      <div class="ss-label">
+        <span class="ss-dot green"></span>
+        <span class="ss-dot"></span>
+        <span class="ss-dot"></span>
+        Terminal · hermes — startup
+      </div>
+      <img src="Hermes-Agent.png" alt="Hermes Agent TUI startup showing Available Tools and Skills panels">
+    </div>
+    <p class="caption">Hermes TUI on launch: pixel-art banner, Available Tools panel (left), Loaded Skills panel (right)</p>
+
+    <div class="cap-grid">
+      <div class="cap-card">
+        <h3>Memory System</h3>
+        <p>Session context + persistent MEMORY.md (~800 tokens) + USER.md profile (~500 tokens). Agent remembers preferences across sessions.</p>
+      </div>
+      <div class="cap-card">
+        <h3>ReAct Loop</h3>
+        <p>Reason → Act → Observe, up to 60 iterations per task. Chains multiple tool calls automatically to solve complex multi-step problems.</p>
+      </div>
+      <div class="cap-card">
+        <h3>Tool Suite</h3>
+        <p>Terminal, file, web, browser, vision, image gen, code execution, cron, Slack, Discord, Telegram, WhatsApp — all built in.</p>
+      </div>
+      <div class="cap-card">
+        <h3>Skill System</h3>
+        <p>SKILL.md format: plain text files that give the agent domain knowledge. Searchable from agentskills.io. MIT licensed.</p>
+      </div>
+      <div class="cap-card">
+        <h3>Model-Agnostic</h3>
+        <p>OpenRouter (200+ models), Nous Portal, or custom endpoint. Switch providers with one command. No vendor lock-in.</p>
+      </div>
+      <div class="cap-card">
+        <h3>Sandbox Backends</h3>
+        <p>Local, Docker, E2B, Modal, or SSH remote execution. Agent code stays on your machine; commands run in the sandbox.</p>
+      </div>
+    </div>
+
+    <!-- MLOps Skills screenshot -->
+    <div class="screenshot-wrap" style="margin-bottom:0.75rem; margin-top:1.5rem;">
+      <div class="ss-label">
+        <span class="ss-dot green"></span>
+        <span class="ss-dot"></span>
+        <span class="ss-dot"></span>
+        Terminal · "What MLOps skills do I have installed?"
+      </div>
+      <img src="02-mlops-skills.png" alt="Agent response listing all 24 MLOps skills with descriptions">
+    </div>
+    <p class="caption">Agent auto-categorizes 24 installed MLOps skills across Training, Inference, Vector DBs, Vision, Eval, and Industry verticals</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── SECTION 4: HOW IT WORKS ── -->
+  <div class="section">
+    <div class="section-label">04 — How It Works</div>
+    <h2>Watching the Agent Think</h2>
+
+    <p>
+      Every query shows its reasoning in real time via <strong>tool calls</strong>.
+      Here's what happened when asked to diagnose a fraud model outage:
+    </p>
+
+    <div class="tbl-wrap" style="margin-bottom:1rem;">
+      <table class="tool-table">
+        <thead>
+          <tr>
+            <th>Tool Call</th>
+            <th>What It Means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>📚 skill finance</td>
+            <td>Loaded finance-mlops SKILL.md — now knows fraud detection patterns, SR 11-7 model risk rules, vLLM workflows</td>
+          </tr>
+          <tr>
+            <td>📚 skill weights-and-biases</td>
+            <td>Loaded W&B skill — uses experiment tracking to find when model drift started</td>
+          </tr>
+          <tr>
+            <td>📚 skill vllm</td>
+            <td>Loaded vLLM skill — for diagnosing the inference serving layer</td>
+          </tr>
+          <tr>
+            <td>📚 skill instructor</td>
+            <td>Loaded Instructor skill — for structured output when extracting model diagnostics</td>
+          </tr>
+          <tr>
+            <td>💡 computing... (48.2s)</td>
+            <td>Synthesizing all loaded skills into a coherent diagnosis plan</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      <strong>The key insight:</strong> the agent pulled 4 relevant skills automatically from one plain-English prompt.
+      No one told it to load W&B or vLLM — it reasoned that a fraud detection outage would involve those tools.
+      This is institutional knowledge capture in action.
+    </p>
+
+    <!-- Telecom timeline screenshot -->
+    <div class="screenshot-wrap" style="margin-bottom:0.75rem; margin-top:1.5rem;">
+      <div class="ss-label">
+        <span class="ss-dot green"></span>
+        <span class="ss-dot"></span>
+        <span class="ss-dot"></span>
+        Terminal · 50,000-tower telecom diagnosis
+      </div>
+      <img src="03-telecom-timeline.png" alt="Chicago tower diagnosis timeline — morning rush avoided">
+    </div>
+    <p class="caption">Chicago cluster: 3 towers flagged at 2am, root cause isolated in 10 minutes, morning rush impact avoided</p>
+
+    <h3 style="margin-top:1.5rem;">Telecom Hero Timeline</h3>
+    <div class="tbl-wrap">
+      <div class="timeline">
+        <div class="tl-row" style="border-bottom:1px solid #30363d;">
+          <span class="tl-time" style="color:#8b949e;">Time</span>
+          <span class="tl-action" style="color:#8b949e;">Action</span>
+          <span class="tl-tool" style="color:#8b949e;">Tool</span>
+        </div>
+        <div class="tl-row"><span class="tl-time">02:00 AM</span><span class="tl-action">Alert fires on 3 towers</span><span class="tl-tool">Monitoring system</span></div>
+        <div class="tl-row"><span class="tl-time">02:02</span><span class="tl-action">Pull tower metadata + adjacency</span><span class="tl-tool">Tower DB</span></div>
+        <div class="tl-row"><span class="tl-time">02:05</span><span class="tl-action">KPI snapshot, identify fingerprint</span><span class="tl-tool">KPI pipeline</span></div>
+        <div class="tl-row"><span class="tl-time">02:10</span><span class="tl-action">SAELens diagnosis → "CHI-4412 backhaul failure" (15.3x)</span><span class="tl-tool">Modal + SAELens</span></div>
+        <div class="tl-row"><span class="tl-time">02:15</span><span class="tl-action">Incident RAG → "Fiber cut Nov, same tower, same crew"</span><span class="tl-tool">Qdrant</span></div>
+        <div class="tl-row"><span class="tl-time">02:20</span><span class="tl-action">Cascade prediction → "18% drop rate by 7 AM"</span><span class="tl-tool">SAELens steering</span></div>
+        <div class="tl-row"><span class="tl-time">02:25</span><span class="tl-action">Work order generated + dispatched</span><span class="tl-tool">Instructor</span></div>
+        <div class="tl-row"><span class="tl-time">02:30</span><span class="tl-action">Microwave backup activated</span><span class="tl-tool">NOC manual</span></div>
+        <div class="tl-row"><span class="tl-time">04:15</span><span class="tl-action">Fiber splice complete</span><span class="tl-tool">Field crew</span></div>
+        <div class="tl-row tl-highlight"><span class="tl-time">07:00+</span><span class="tl-action">Morning rush — full capacity, no dropped calls</span><span class="tl-tool">Avoided</span></div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:1rem;">
+      <table class="tool-table">
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Diagnose to root cause</td><td>10 minutes</td></tr>
+          <tr><td>Mitigate (microwave backup)</td><td>30 minutes</td></tr>
+          <tr><td>Full resolution (fiber repair)</td><td>2h 15m</td></tr>
+          <tr><td>Morning rush impact</td><td>AVOIDED</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:1.5rem;">Fraud Detection Tool Assignment</h3>
+    <div class="tbl-wrap">
+      <table class="tool-table">
+        <thead><tr><th>Step</th><th>Tool</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Feature drift detection</td><td>W&B</td><td>Log PSI, compare distributions, governance artifacts</td></tr>
+          <tr><td>Model version audit</td><td>W&B Registry</td><td>Check who deployed what, when</td></tr>
+          <tr><td>Serving diagnostics</td><td>vLLM metrics</td><td>Latency, cache usage, throughput</td></tr>
+          <tr><td>FN cluster analysis</td><td>Instructor</td><td>Structured extraction of new fraud pattern</td></tr>
+          <tr><td>Threshold re-tuning</td><td>W&B Sweeps</td><td>Bayesian optimization of threshold + class weights</td></tr>
+          <tr><td>Burst retraining</td><td>Modal</td><td>Spin up GPUs for fast retrain</td></tr>
+          <tr><td>Incident documentation</td><td>W&B Artifacts</td><td>SR 11-7 compliant audit trail</td></tr>
+          <tr><td>Ongoing monitoring</td><td>Modal + W&B</td><td>Scheduled feature health checks + automated alerts</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── SECTION 5: GET STARTED ── -->
+  <div class="section">
+    <div class="section-label">05 — Get Started</div>
+    <h2>From Zero to Running Agent in 5 Minutes</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Install Hermes</div>
+          <div class="step-desc">One command installs the agent, enterprise MLOps overlay, and all 51 skills.</div>
+          <div class="code-block"><span class="green">curl</span> -fsSL https://hermes.qbitloop.com/install.sh | bash</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Add your LLM key</div>
+          <div class="step-desc">Get a free key at openrouter.ai — 200+ models, pay-per-use, no subscription.</div>
+          <div class="code-block">
+            # Edit ~/.hermes/.env<br>
+            OPENROUTER_API_KEY=sk-or-v1-...
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Launch the TUI</div>
+          <div class="step-desc">Opens the full terminal interface with tools and skills panels.</div>
+          <div class="code-block">hermes</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Try your first query</div>
+          <div class="step-desc">Ask it anything. For MLOps, start with your vertical:</div>
+          <div class="code-block">
+            hermes chat -q "What MLOps skills do I have installed and what can each one do?"
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Run a vertical demo</div>
+          <div class="step-desc">Pick a scenario from Section 02 and run it. The agent will auto-load the relevant skills.</div>
+          <div class="code-block">
+            # Telecom example:<br>
+            hermes chat -q "I manage 50,000 cell towers. Three towers in the Chicago cluster showed anomalous traffic patterns at 2am. Walk me through how you'd diagnose this using the telecom-mlops skill."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="links">
+    <a href="https://github.com/QbitLoop/hermes">GitHub</a>
+    <a href="gsi-handout.html">GSI Reference</a>
+    <a href="../index.html">Install</a>
+    <a href="https://github.com/NousResearch/hermes-agent">NousResearch</a>
+    <a href="https://qbitloop.com">QbitLoop</a>
+  </div>
+
+</div>
+</body>
+</html>
