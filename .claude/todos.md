@@ -53,8 +53,8 @@ Each demo script should include:
 
 ## Phase 4: Blueprint & Polish (2026-03-03)
 
-- [ ] Build `assets/blueprint.html` — 3-lane architecture diagram (Material Icons, GitHub Dark)
-- [ ] Link blueprint from `index.html` as "Architecture"
+- [x] Build `assets/blueprint.html` — 3-lane architecture diagram (Material Icons, GitHub Dark) — 2026-03-03
+- [x] Link blueprint from `index.html` as "Architecture" — 2026-03-03
 - [ ] Revisit Hermes agent TUI — remove emojis from menus (replace with text or Material Icons style labels; emojis are not production standard per CLAUDE.md)
 
 ---

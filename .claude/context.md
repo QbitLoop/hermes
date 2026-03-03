@@ -18,7 +18,7 @@ packaging it for an actual GSI audience (SAs, DevRel, ML Platform teams).
 - [x] GSI handout built: hermes.qbitloop.com/assets/gsi-handout.html
 - [x] SA field guide built: hermes.qbitloop.com/assets/guide.html (3 real screenshots, 5 sections)
 - [x] NousResearch attribution added to index + guide with repo link
-- [ ] Blueprint architecture visual: assets/blueprint.html (NVIDIA-style flow diagram)
+- [x] Blueprint architecture visual: hermes.qbitloop.com/assets/blueprint.html — 3 lanes (Orchestration, ML Lifecycle, Skills), 24 skills mapped, Material Icons, GitHub Dark — 2026-03-03
 
 ## Strategic Context
 
