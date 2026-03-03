@@ -213,7 +213,67 @@
   </p>
 
   <div class="blueprint">
-    <!-- lanes added in subsequent tasks -->
+    <!-- LANE 1: ORCHESTRATION -->
+    <div class="lane">
+      <div class="lane-label"><span>Orchestration</span></div>
+      <div class="lane-content">
+
+        <div class="node">
+          <div class="node-icon gray"><span class="material-icons">person</span></div>
+          <div class="node-label">User</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="node">
+          <div class="node-icon blue"><span class="material-icons">hub</span></div>
+          <div class="node-label">Hermes Core</div>
+          <div class="node-sublabel">ReAct · 60 iter</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="node">
+          <div class="node-icon gray"><span class="material-icons">memory</span></div>
+          <div class="node-label">Memory</div>
+          <div class="node-sublabel">Session · MEMORY.md · USER.md</div>
+        </div>
+        <div class="arrow" style="color:#21262d;">⤷</div>
+
+        <div class="node">
+          <div class="node-icon amber"><span class="material-icons">auto_awesome</span></div>
+          <div class="node-label">Skill Loader</div>
+          <div class="node-sublabel">Auto-selects from 24</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="node">
+          <div class="node-icon amber"><span class="material-icons">build</span></div>
+          <div class="node-label">Tool Dispatch</div>
+          <div class="node-sublabel">Terminal · File · Web · Browser</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="node">
+          <div class="node-icon gray"><span class="material-icons">terminal</span></div>
+          <div class="node-label">Sandbox</div>
+          <div class="node-sublabel">Local · Docker · Modal · E2B · SSH</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="node">
+          <div class="node-icon green hex"><span class="material-icons">psychology</span></div>
+          <div class="node-label">LLM Provider</div>
+          <div class="node-sublabel">OpenRouter · Nous · Custom</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="node">
+          <div class="node-icon gray"><span class="material-icons">chat</span></div>
+          <div class="node-label">Response</div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ML Lifecycle and Skills lanes added next -->
   </div>
 
   <hr class="divider">
