@@ -8,7 +8,7 @@ packaging it for an actual GSI audience (SAs, DevRel, ML Platform teams).
 
 ## Current Phase
 
-**Phase 3: Complete** (2026-03-01)
+**Phase 4: In Progress** (2026-03-03)
 - [x] Project directory + memory system initialized (2026-02-27)
 - [x] Full 10-part playbook saved as playbook.md
 - [x] 5 per-vertical demo scripts created (demos/)
@@ -16,6 +16,9 @@ packaging it for an actual GSI audience (SAs, DevRel, ML Platform teams).
 - [x] GitHub repo created: github.com/QbitLoop/hermes
 - [x] GitHub Pages enabled: hermes.qbitloop.com
 - [x] GSI handout built: hermes.qbitloop.com/assets/gsi-handout.html
+- [x] SA field guide built: hermes.qbitloop.com/assets/guide.html (3 real screenshots, 5 sections)
+- [x] NousResearch attribution added to index + guide with repo link
+- [ ] Blueprint architecture visual: assets/blueprint.html (NVIDIA-style flow diagram)
 
 ## Strategic Context
 
