@@ -152,6 +152,12 @@
       line-height: 1.35;
       white-space: nowrap;
     }
+    .ml-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.3rem;
+    }
 
     /* skills layer (lane 3) */
     .skills-lane {
@@ -278,31 +284,31 @@
     <div class="lane">
       <div class="lane-label"><span>ML Lifecycle</span></div>
       <div style="flex:1;display:grid;grid-template-columns:repeat(9,1fr);align-items:center;padding:0.85rem 0;">
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Ingest &amp;<br>Tokenize</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Embed &amp;<br>Index</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Vision &amp;<br>Multimodal</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Train &amp;<br>Fine-Tune</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Evaluate</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Serve &amp;<br>Infer</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Structure<br>Output</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Apply<br>(RAG)</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.3rem;">
+        <div class="ml-stage">
           <div class="stage-box">Monitor &amp;<br>Govern</div>
         </div>
       </div>
