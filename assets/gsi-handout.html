@@ -18,6 +18,8 @@
       width: 100%;
       margin: 0 auto;
     }
+    .brand-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+    .brand-logo { height: 80px; width: auto; flex-shrink: 0; }
     .badge {
       display: inline-block;
       background: #1f6feb;
@@ -173,9 +175,14 @@
 </head>
 <body>
   <div class="container">
-    <div class="badge">Enterprise MLOps Edition</div>
-    <h1>Hermes Agent — GSI Reference</h1>
-    <p class="sub">Architecture · Industry Verticals · Key Commands · Powered by NousResearch</p>
+    <div class="brand-header">
+      <img src="crow-logo.png" alt="" class="brand-logo">
+      <div>
+        <div class="badge">Enterprise MLOps Edition</div>
+        <h1>Hermes Agent — GSI Reference</h1>
+        <p class="sub">Architecture · Industry Verticals · Key Commands · Powered by NousResearch</p>
+      </div>
+    </div>
 
     <div class="install-block">
       <div class="install-label">Install</div>

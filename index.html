@@ -18,6 +18,8 @@
       padding: 2rem;
     }
     .container { max-width: 720px; width: 100%; }
+    .brand-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2rem; }
+    .brand-logo { height: 80px; width: auto; flex-shrink: 0; }
     .badge {
       display: inline-block;
       background: #1f6feb;
@@ -117,9 +119,14 @@
 </head>
 <body>
   <div class="container">
-    <div class="badge">Enterprise MLOps Edition</div>
-    <h1>Hermes Agent</h1>
-    <p class="sub">Terminal AI agent with 40+ tools and curated MLOps skills<br>Built on <a href="https://github.com/NousResearch/hermes-agent" style="color:#58a6ff;text-decoration:none;">NousResearch hermes-agent</a> · Enterprise MLOps overlay by QbitLoop</p>
+    <div class="brand-header">
+      <img src="assets/crow-logo.png" alt="" class="brand-logo">
+      <div>
+        <div class="badge">Enterprise MLOps Edition</div>
+        <h1>Hermes Agent</h1>
+        <p class="sub">Terminal AI agent with 40+ tools and curated MLOps skills<br>Built on <a href="https://github.com/NousResearch/hermes-agent" style="color:#58a6ff;text-decoration:none;">NousResearch hermes-agent</a> · Enterprise MLOps overlay by QbitLoop</p>
+      </div>
+    </div>
 
     <div class="install-block">
       <div class="install-label">Install</div>

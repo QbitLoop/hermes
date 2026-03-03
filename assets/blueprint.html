@@ -17,6 +17,8 @@
     .container { max-width: 1100px; width: 100%; margin: 0 auto; }
 
     /* header */
+    .brand-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2rem; }
+    .brand-logo { height: 80px; width: auto; flex-shrink: 0; }
     .badge {
       display: inline-block;
       background: #1f6feb;
@@ -212,12 +214,17 @@
 <body>
 <div class="container">
 
-  <div class="badge">Architecture Blueprint</div>
-  <h1>Hermes Agent — System Architecture</h1>
-  <p class="sub">
-    Orchestration · ML Lifecycle · 24 Skills ·
-    Built on <a href="https://github.com/NousResearch/hermes-agent">NousResearch hermes-agent</a>
-  </p>
+  <div class="brand-header">
+    <img src="crow-logo.png" alt="" class="brand-logo">
+    <div>
+      <div class="badge">Architecture Blueprint</div>
+      <h1>Hermes Agent — System Architecture</h1>
+      <p class="sub">
+        Orchestration · ML Lifecycle · 24 Skills ·
+        Built on <a href="https://github.com/NousResearch/hermes-agent">NousResearch hermes-agent</a>
+      </p>
+    </div>
+  </div>
 
   <div class="blueprint">
     <!-- LANE 1: ORCHESTRATION -->
